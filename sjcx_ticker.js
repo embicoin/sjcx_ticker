@@ -2,8 +2,9 @@ var express = require('express');
 var app = express();
 
 var request=require('request');
-var n=3;
+var n;
 app.get('/', function (req, res) {
+    n=3;
     var result=[];
     master(res,result);
     melotic(res,result);
@@ -81,12 +82,12 @@ function poloniex(res,r){
                 var json=JSON.parse(body);
                 var value=json["BTC_SJCX"]["last"];
                 var volume=json["BTC_SJCX"]["baseVolume"];
-                result=({name:"poloiex",value:value,volume:volume});
+                result=({name:"poloniex",value:value,volume:volume});
             } else {
-                result=({name:"poloiex",value:-1,volume:0});
+                result=({name:"poloniex",value:-1,volume:0});
             }
         }catch(e){
-            result-({name:"poloiex",value:-1,volume:0});
+            result-({name:"poloniex",value:-1,volume:0});
         }finally{
             r.push(result);
             n--;
@@ -96,9 +97,10 @@ function poloniex(res,r){
 }
 
 function send(res,result){
-    if(n==0){
-        res.json(result);
-    }
+    console.log(result[result.length-1]["name"])
+        if(n==0){
+            res.json(result);
+        }
 }
 
 app.listen(process.env.PORT || 3000);
