@@ -1,0 +1,9 @@
+{
+      "name": "sjcx_ticker",
+        "version": "0.0.1",
+          "dependencies": {
+                  "express":"*",
+                  "request":"*"
+                    }
+}
+
