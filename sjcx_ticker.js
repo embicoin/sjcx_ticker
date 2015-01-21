@@ -99,7 +99,7 @@ function poloniex(res,r){
 function send(res,result){
     console.log(result[result.length-1]["name"])
         if(n==0){
-            res.json(result);
+            res.jsonp(result);
         }
 }
 
