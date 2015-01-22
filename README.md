@@ -1,2 +1,4 @@
 # sjcx_ticker
-get ticker of sjcx from Melotic,MasterXchange,PoloniEx
+get ticker of sjcx from Melotic and PoloniEx and return as JSONP.
+
+
