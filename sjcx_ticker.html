@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8" />
-<title>SJCX TICKER</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script>
+    <head>
+        <meta charset="utf-8" />
+        <title>SJCX TICKER</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>
+var n=0;
+
 function ticker(){
-  jQuery.getJSON('https://sjcx-ticker.herokuapp.com/?callback=?',{},
-    function (result) {
-        for(var i=j=0;i<1;i++){
-            if(result[i].price>0){
-                $("#sjcx_ticker_name").html(result[i].name);
-                $("#sjcx_ticker_name").attr("href",result[i].hp);
-                $("#sjcx_ticker_price").html(Math.round(result[i].price*1000000*100)/100);
-                $("#sjcx_ticker_high").html(Math.round(result[i].high*1000000*100)/100);
-                $("#sjcx_ticker_low").html(Math.round(result[i].low*1000000*100)/100);
-                j++;
-            }
-        }
-    });
+    jQuery.getJSON('https://sjcx-ticker.herokuapp.com/?callback=?',{},
+            function (result) {
+                $("#sjcx_ticker_name").html(result[n].name);
+                $("#sjcx_ticker_name").attr("href",result[n].hp);
+                $("#sjcx_ticker_price").html(Math.round(result[n].price*1000000*100)/100);
+                $("#sjcx_ticker_high").html(Math.round(result[n].high*1000000*100)/100);
+                $("#sjcx_ticker_low").html(Math.round(result[n].low*1000000*100)/100);
+                if(++n>=result.length) n=0;
+                setTimeout(ticker,10000);
+            });
 }
 
 $(function(){
     ticker();
-    setTimeout(ticker,10000);
 });
 
-</script>
+        </script>
 
-<style>
+        <style>
 .sjcx_ticker {
     font-family: "Times New Roman", Times, serif;
     border-radius: 10px;       
@@ -46,23 +44,23 @@ $(function(){
     font-size:20pt;
 }
 .sjcx_ticker_price {
-	font-family: sans-serif;
+    font-family: sans-serif;
     font-weight:bold;
     font-size:20pt;
 }
 .sjcx_ticker_hv {
     font-size:10pt;
 }
-</style></head>
-<body>
-<div class="sjcx_ticker">
-<img style="float:left" src="sjcx_on.png">
-<a class="sjcx_ticker_name" id="sjcx_ticker_name"></a><br>
-<span class="sjcx_ticker_price" id="sjcx_ticker_price"></span> μBTC<br>
-<span class="sjcx_ticker_hv">high <span id="sjcx_ticker_high"></span> μBTC</span><br>
-<span class="sjcx_ticker_hv">low  <span id="sjcx_ticker_low"></span> μBTC</span><br>
-<span style="clear:both"></span>
-</div>
-</body>
+    </style></head>
+    <body>
+        <div class="sjcx_ticker">
+            <img style="float:left" src="sjcx_on.png">
+            <a class="sjcx_ticker_name" id="sjcx_ticker_name"></a><br>
+            <span class="sjcx_ticker_price" id="sjcx_ticker_price"></span> μBTC<br>
+            <span class="sjcx_ticker_hv">high <span id="sjcx_ticker_high"></span> μBTC</span><br>
+            <span class="sjcx_ticker_hv">low  <span id="sjcx_ticker_low"></span> μBTC</span><br>
+            <span style="clear:both"></span>
+        </div>
+    </body>
 </html>
 
