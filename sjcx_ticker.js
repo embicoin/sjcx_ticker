@@ -1,9 +1,5 @@
 var express = require('express');
 var app = express();
-app.set('view engine', 'jade');
-app.set('views', __dirname + '/views');
-
-
 
 var request=require('request');
 var n=2;
@@ -46,9 +42,7 @@ app.get('/', function (req, res) {
     }
 });
 
-app.get('/ticker', function (req, res) {
-    res.render("ticker",{});
-});
+app.use(express.static(__dirname+'/public'));
 
 
 function getTicker(res,result,i,atLast){
