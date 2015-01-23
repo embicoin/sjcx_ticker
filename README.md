@@ -19,7 +19,10 @@ jsonp : https://sjcx-ticker.herokuapp.com/
 * request
 
 ## Usage
-just run node sjcx_ticker.js, and access it by your program using jsonp or browser.
+1. npm install in sjcx_tikcer directory.
+1. node sjcx_ticker.js
+2. access port 3000 by your program using jsonp or browser.
+
 If you want to embed widget, add a line in your page.
 ```
 <iframe seamless frameborder="0" src="https://<hostname>/sjcx_ticker.html …" width="300" height="130" >
