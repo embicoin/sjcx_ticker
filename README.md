@@ -7,7 +7,7 @@ ticker of sjcx from Melotic and PoloniEx and return as JSONP.
 This node.js program get ticker of sjcx from from Melotic and PoloniEx by using REST API,
 and return jsonp on http://<hostname>/ and return widget for web pages on http://<hostname>/sjcx_ticker.html
 
-## demo page
+## Demo Page
 widget:  https://sjcx-ticker.herokuapp.com/sjcx_ticker.html
 
 jsonp : https://sjcx-ticker.herokuapp.com/
