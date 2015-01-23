@@ -10,7 +10,7 @@ and return jsonp on http://<hostname>/ and return widget for web pages on http:/
 ## Demo Page
 widget:  https://sjcx-ticker.herokuapp.com/sjcx_ticker.html
 
-jsonp : https://sjcx-ticker.herokuapp.com/
+jsonp : https://sjcx-ticker.herokuapp.com/?callback=sjcx
   
   
 ## Requirement
